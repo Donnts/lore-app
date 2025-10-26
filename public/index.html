@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lore Archive</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-title">
+      <h1>📜 Lore Archive</h1>
+      <p class="subtitle">Shared world encyclopedia</p>
+    </div>
+
+    <div class="theme-toggle">
+      <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+      </label>
+      <span class="theme-label" id="themeLabel">Dark</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- LEFT PANEL -->
+    <section class="panel">
+      <h2>Add / Edit Entry</h2>
+      <form id="loreForm">
+        <input type="hidden" id="entryId" />
+
+        <label>
+          Title
+          <input type="text" id="titleInput" placeholder="Ex: Heralds of Kilador" required />
+        </label>
+
+        <label>
+          Category / Type
+          <input type="text" id="typeInput" placeholder="Faction, Character, Event..." />
+        </label>
+
+        <label>
+          Tags (comma separated)
+          <input type="text" id="tagsInput" placeholder="undead, cybernetic, imperial" />
+        </label>
+
+        <label>
+          Summary / Lore Text
+          <textarea id="bodyInput" rows="6" placeholder="Write the lore..."></textarea>
+        </label>
+
+        <div class="form-row">
+          <button type="submit" class="btn primary" id="saveBtn">Save Entry</button>
+          <button type="button" class="btn danger" id="deleteBtn" disabled>Delete</button>
+          <button type="button" class="btn ghost" id="clearBtn">Clear</button>
+        </div>
+      </form>
+
+      <hr />
+
+      <h2>Media / Attachments</h2>
+      <p style="font-size:.7rem; color:var(--text-dim); line-height:1.2rem;">
+        Choose PNG/JPG/WEBP or audio (mp3/wav/ogg/m4a), then Upload.
+        It will attach to whichever lore entry is currently loaded.
+      </p>
+
+      <div class="form-row">
+        <input type="file" id="mediaFile" style="font-size:.7rem; max-width:100%;" />
+        <button type="button" class="btn" id="uploadBtn">Upload to Entry</button>
+      </div>
+
+      <hr />
+
+      <h2>Search</h2>
+      <input
+        type="text"
+        id="searchInput"
+        class="search-box"
+        placeholder="Search title / text / tags..."
+      />
+
+      <label>
+        Filter by Type
+        <select id="typeFilter">
+          <option value="">All</option>
+        </select>
+      </label>
+    </section>
+
+    <!-- RIGHT PANEL -->
+    <section class="panel">
+      <h2>
+        Entries
+        <span id="countBadge" class="badge">0</span>
+      </h2>
+
+      <ul id="entryList" class="entry-list">
+        <!-- JS fills this -->
+      </ul>
+
+      <article id="previewCard" class="preview-card hidden">
+        <h3 id="previewTitle">Select an entry</h3>
+        <p class="preview-meta" id="previewMeta"></p>
+        <p id="previewBody" class="preview-body"></p>
+
+        <div id="previewMedia" class="preview-media"></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>Shared Lore Server • All players see updates</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

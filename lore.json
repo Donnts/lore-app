@@ -1,0 +1,20 @@
+[
+  {
+    "id": "id-1761502914835",
+    "title": "death",
+    "type": "faction",
+    "tags": [
+      "yes"
+    ],
+    "body": "death",
+    "media": [
+      {
+        "filename": "download_1761502996795.jpg",
+        "url": "/uploads/download_1761502996795.jpg",
+        "mimetype": "image/jpeg",
+        "kind": "image"
+      }
+    ],
+    "updatedAt": 1761502996807
+  }
+]
